@@ -1,0 +1,346 @@
+\documentclass[12pt]{report}
+\usepackage{hyperref}
+\usepackage[x11names]{xcolor}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\paragraphfont{\color{cyan}}  % sets colour of chapters
+\title{Responses to comments on the Search for Heavy Neutrinos at NA62}
+\author{Francis Newson}
+\begin{document}
+\maketitle
+
+\section{Rainer's comments}
+In a few places I am using the standard km2 selection from the rk analysis, outlined on Evgueni's web page: \url{http://goudzovs.web.cern.ch/goudzovs/ke2/selection.html}. 
+
+\paragraph{page 11, 4th paragraph:  \\
+    How is the vertex reconstruction done? I assume, that the vertex z-coordinate is the z-position of the CDA of track and K-direction-of-flight, but how are the x- and y-coordinates defined? $\textrm{track}_{x,y}$, $\textrm{K-direction}_{x,y}$, or something in between at $z_\textrm{vertex}$\\
+}
+I use the recipe under `CDA computation \& blue tube field correction' on the km2 page.
+
+\paragraph{page 14: \\
+    Have $K_{\mu 3\gamma}$ and $K_{2\pi\gamma}$ been included in the Monte Carlo production of $K_{\mu 3}$ and $K_{2\pi}$?\\
+}
+Yes IB is included. For k2pig, first file in my list is: 
+\url{/castor/cern.ch/user/g/goudzovs/cmc007_v2/k2pig_kloe/prod1/run20410.pos.0.scmp}
+For km3, I am using \url{http://goudzovs.web.cern.ch/goudzovs/ke2/lists/mc.p5.km3.radcor.list
+}
+
+\paragraph{page 16, Eqn.s 26 + 27: \\
+    Have the run-dependent values of $\lambda_r$, $\mu_r$, and $p_{0r}$ been taken from a database (which?) or been determined by this analysis? In the latter case, it would be nice to have a list of them.\\  
+} 
+I follow the recipe under 'Correction for momentum spectrum width [MC only]’ on the km2 page, including the `more elaborate second-order correction'.
+
+
+\paragraph{page 17, section 7.3., 1. paragraph: \\
+    I did not know about a run-dependent energy scale. Is this commonly available or have the energy scales been derived by this analysis (if yes, how)? \\
+    The non-linearity correction is the usual Compact correction?\\
+    Which routine has been used for the cell-by-cell correction?\\
+    I apologize, if these questions are trivial, but it has been a while since I have done analysis myself.\\
+}
+
+I follow the km2 page.
+
+\paragraph{page 18, Eqn. 30:\\
+    This equation does actually not take into account the z position of the actual vertex, but assumes an “average” vertex at $z_{LKr}$ - $\Delta z_{LKr}$. However, I strongly believe, that this has no effect on this analysis.
+}
+
+I might dispute your first comment but I agree with the second.
+
+
+\paragraph{page 22, 2. item in the $\chi^2$-computation: \\
+    Just for my own understanding: the vertex z coordinate is computed numerically, because the mean kaon direction of flight is not parallel to the beam axis?\\
+}
+
+Yes - it might be possible to solve it with pen and paper but I couldn’t.
+
+\paragraph{page 23, Fig. 14a:\\
+    What is the reason for the peak at $\chi^2 = 1$?\\
+}
+In my viva I said it might be related to the fact that I constrain photon energies $> 0$.
+There is a kind of ringing at other integer values.
+
+\paragraph{page 30ff:\\
+    I used to think that the MUV was $~99.7\%$ efficient for $p_\mu > 10 GeV$ (see e.g. the NA48/2 Kl3 BR analysis, Eur. Phys. J. C 50, 329–340 (2007)). I faintly remember, that there was a reason, why the efficiency is only $\sim 97 \%$
+    , but could you remind me?\\
+}
+
+I never found any presentation or similar discussing it but since I found clearly inefficient strips, I assumed it could be due to the lower HV in 2007 or wear and tear or crazing.
+
+
+\paragraph{- page 41, Fig 32:\\
+    (a), (b): What is the origin of the symmetric "double-structure” around $z = -2000 cm$? \\
+}
+I think there may actually have been more than one collimator just upstream of the decay volume (called something like `cleaning' and `final') but I never completely understood it. It's not related to spectrometer polarity because you see the double structure even with just one polarity.
+
+\clearpage
+\paragraph{(d): What is the distribution of Kmu2, Kmu3, and heavy-neutrino events in the z-theta-plane? Do you have 2-dim-plots of those channels? \\
+}
+
+Distributions shown below. The abrupt change in the middle of each plot is because of the different selections applied to the `upper' and `lower' regions.
+
+\begin{figure}[b!]
+    \includegraphics[width=0.45\textwidth]{img/km2_zt.png}
+    \includegraphics[width=0.45\textwidth]{img/km3_zt.png}
+    \caption{$z \theta$ distributions. Left: km2, right: km3}
+\end{figure}
+\begin{figure}[b!]
+    \includegraphics[width=0.45\textwidth]{img/hnu_300_zt.png}
+    \includegraphics[width=0.45\textwidth]{img/hnu_350_zt.png}
+    \caption{$z \theta$ distributions. Left: hnu 300 MeV, right: hnu 350 MeV}
+\end{figure}
+\clearpage
+
+\paragraph{page 47, Fig 37: \\
+    How were the Kless data scaled? Is it an absolute normalization or have the data for e.g. $m_\textrm{miss}^2 < 0$ been used?\\
+}
+In this case just the data for $m_\textrm{miss}^2 < 0.05 GeV^2/c^44$
+
+\paragraph{page 54ff, Fig 43, Sec 13ff:\\
+My last comment I believe is also the most serious: How has the Kmu3 background been taken into account? It is by far the largest background, but I could not find written, that any error (statistical or systematic) is attributed to Kmu3.\\}
+I agree in general that Km3 is a serious issue and probably needs more attention.
+\paragraph{I therefore  have several comments and questions on this background:
+How has the Kmu3 background been normalized? Is there a systematic error attributed to the normalization (e.g. the uncertainty on the PDG-BR)?\\}
+
+Yes I have just used the PDG branching ratio.
+
+\paragraph{What is the final acceptance of Kmu3 events to enter the signal region? Some cuts like the photon-veto requirement may not be well modeled in the MC simulation, have there been corresponding studies?}
+
+\paragraph{What MC with which form factors has been used? Were radiative corrections included? Have the form factors been varied within their uncertainties for a possible corresponding systematic error?}
+
+I have not made any studies of the LKr performance - I was relying on the fact that it has been well measured in previous analyses.
+In the plot below, I show the effect of using 
+[0.01 * total no of background events] as a crude estimate of the systematic error associated with the km3 branching ratio.
+
+\begin{figure}[b!]
+    \includegraphics[width=0.7\textwidth]{img/km3_err}
+    \caption{Effect of including the error on the km3 branching ratio.}
+\end{figure}
+\clearpage
+
+\paragraphfont{\color{DarkOliveGreen4}}  % sets colour of chapters
+\section{Tommaso's comments}
+
+\paragraph{Comment on text in page 11, section 6.2: the cited definition of signal acceptance includes events generated outside the region, namely position of the vertex along the beam between -18 m and 80 m, but reconstructed within it. That is not a problem, but it would be good to show the distribution of the z coordinates of the accepted vertices, just to assess that resolution effects do not alter the general picture shown in the left panel of figure 7. In other words, I would like to be sure that even for the high-mass region, when the muons tend to be more collinear to the beam, resolution effects (at least according to the simulation) play a minor role.}
+
+Here is a plot:
+
+\begin{figure}[h!]
+    \includegraphics[width=0.45\textwidth]{img/signal_z.pdf}
+    \includegraphics[width=0.45\textwidth]{img/signal_hm2m_z.pdf}
+    \caption{$z$ distribution for left: all events, right: events with squared missing masses $> 0.05 GeV^2/c^2$}
+\end{figure}
+
+\paragraph{Minor comment on the caption of Figure 9 in page.13: which is the scale factor assumed for the halo shown in there?}
+For this preliminary plot, I followed the approach for the $R_K$ analysis but only using 1 momentum bin.
+The halo distribution was scaled so that the integral between $-0.3 GeV^2$ and $-0.1 GeV^2$ matched the data and then the $K_{\mu2}$ peak was scaled so that the integral of the peak (including the halo component) matched the data.
+
+\paragraph{As a general comment, after discussion on pages 13 and 14, it should be worth showing the $m^2_{miss}$
+distribution of each component, IB, DE, and INT, to indicate the relative strength in each mass region.\\}
+Here is a plot:
+\begin{figure}[h!]
+    \includegraphics[width=0.55\textwidth]{img/km2_sub.pdf}
+    \caption{Contributions from $K_{\mu 2}$.}
+\end{figure}
+
+
+\paragraph{Comment: “Tracks with associated muons in the MUV”: here one might specify in more detail
+the condition applied or refer to Sec. 9.\\}
+Instead:
+
+Tracks are associated with muons if the distance in the $xy$ plane between the reconstructed muon position in the MUV
+and the position of the track when extrapolated to the MUV is less than a momentum dependent cut-off (see section 9).
+Events in which such an association is made are rejected in order to \dots [as before].
+
+
+\paragraph{Question: Figure 14: why all of the background components peak in the $\chi^2$ plot?}
+See answer to Rainer's similar question.
+
+\paragraph{Comment on Sec. 9.1: in order for Fig. 22 to really show the accuracy of the cut applied, one
+    would have expected an efficiency comparison in slice of momentum, as opposed to consider all of
+    the momenta compared with a 30-to-60 GeV cut. Nevertheless, the flatness of the efficiency when
+using  $\zeta = 4$ is property worth to be emphasized.}
+Here are the efficiencies in momentum bins. The total variation as a function of momentum is $\sim 2\%$
+so an error of $\sim 1\%$ after applying corrections is comfortable.
+\begin{figure}[h!]
+    \includegraphics[width=0.85\textwidth]{img/muv_multiplier.pdf}
+    \caption{Muon veto efficiency}
+\end{figure}
+
+\paragraph{Comment page 35: “The drop in efficiency at low momentum is expected from increased multiple Coulomb scattering”:
+    the treatment itself should make the efficiency independent of the momentum, 
+but most probably other effects are taking place (hard scatterings, for example).}
+Yes and also there may be geometrical effects where the muon is scattered outside of the acceptance of the MUV.
+In figure 29, we see the sharp drop-off in efficiency at low momentum even in MC without the momentum dependent correction applied.
+
+\paragraph{Major comment: Does the lower-region CDA side band defined in page 49 overlap with the signal
+    selection? If so, that is not consistent, since one would normalize the halo estimate from K−
+    data with a small fraction of the signal sample itself. In any case, a possible bias from this
+    side is correctly account for by the systematic error from the difference between the scale factors
+    obtained with the proposed method and those from the side band in the negative region of the
+squared missing mass.}
+Yes, this is true. The effect is typically small, e.g. for a 250 MeV neutrino, 0.2\% of the events
+have CDA $> 2cm$.
+
+
+
+\paragraph{Muon veto: differences observed between data and MC when applying the re-weighting technique described in section 9 are probably due to unaccounted correlations between kinematical variables within the correction method. The choice determining the systematic error is not entirely clear, most probably because of a typo in the following verb elliptical phrase: ``In the final analysis, the residual difference included as a systematic error on the background estimate.'' Since, in the end, the error is assumed to be 1-\%-fractional on the number of expected background events, I have to assume that the most conservative choice has been made, that of including the maximum difference observed as systematic error.
+}
+
+Yes that sentence should have read: ``In the final analysis, this maximum residual difference is included as a systematic error on the background estimate.''
+
+\paragraph{Trigger efficiency: this is the first point for which I'm not satisfied from the methodological point of view. 
+    The statistical treatment of the binomial uncertainty is consistent 
+    (I think this is what I was usually naming ``Neeman construction''), 
+    but the efficiency estimate is biased: one would like to estimate the trigger efficiency for the background, 
+    in order for this to be applied to the Monte-Carlo, data-driven estimate $B_{raw}$;
+    on the contrary, the estimate is performed on the entire data-sample triggered by Q1; 
+    so, the underlying assumption behind this efficiency estimate is that all of the data is background.
+    Now, one has good reasons to assume that the efficiency for the background differs with respect to the wanted signal
+    a simplified picture is that the background is dominated by events with photons in the final state ($K_{\mu3}$) 
+    for which the average efficiency is around 0.9, 
+    while the signal efficiency cancels with the normalization sample and should be around unity.
+    The approach followed is very risky:
+    if for example, the tiny fluctuation of the efficiency in Fig 48 for m2miss around 0.105 GeV2
+    were due to the presence of a signal biassing the efficiency estimate, then the procedure would automatically increase also the estimate of the expected background, thus partly washing away the signal!
+    Now, the only workaround that I see not involving a thorough study of each background component
+    and its related trigger efficiency, is the following: 
+    E949 experiment excludes at a $10^{−8}$ level on $||U^4_{\mu h}|$,
+    the heavy neutrino mass region from 245 MeV to 300 MeV,corresponding to the ${m^2_{miss}}$ range
+    from $0.06 GeV^2$ to $0.09 GeV^2$, overlapping to the left side of the signal region. 
+    In this side-band region, therefore, the bias from any signal is reduced to a negligible level.
+    In the side-band, the relative composition of the $K_{\mu3}$ and $K{\mu2}$ 
+    (most probably radiative $K_{\mu2}$) background components varies significantly:
+    from Figure 53, a rough estimate is that their ratio passes from around 1 to around 4 in the above range.
+    On the contrary, the 1-TRKLM trigger is nicely flat, to within 3–4\%
+    (this has to be checked by performing a fit to a constant function).
+    Therefore, one is justified in assuming that the efficiency is indeed flat in the entire signal region.
+    My proposal is to assume the trigger efficiency for the background to be constant and equal to the average in the above side-band.
+    This way, one loses a small part of the sensitivity window, namely from 270 MeV to 300 MeV, 
+but keeps a consistent approach for the remaining window, between 300 MeV and 380 MeV.}
+
+I agree the current estimate is biased if there is signal present.
+Below is the full approach I had been considering. 
+I have written it down to show that I think in principle there is enough information 
+to extract the desired numbers but I have not fully considered the implementation 
+and I am happy with the solution proposed by Tomaso.
+
+\paragraphfont{\color{black}}  % sets colour of chapters
+\paragraph{My approach (untested)\\}
+
+In what follows, $X, Y$ and $Z$ will be random variables and $x, y$ and $z$ 
+will be realisations of these random variables (measurements).
+$\mu$ will be the number of signal events, $b$ will be the number of background events,
+and $\eta$ will be the trigger efficiency for background events.
+
+In a counting experiment to measure a signal $\mu$, with known background, $b$, 
+the number of events actually observed $x$, follows a Poisson distribution:
+
+\begin{equation}
+    X \sim Pois( \mu + b )
+\end{equation}
+
+The best estimate of $\mu$ is just $\mu = x - b$
+and one can use the change in log-likelihood to determine the confidence interval on $\mu$.
+(In my case the confidence interval includes zero and I set an upper limit).
+
+In the case where the background $b$ is not known exactly but estimated from an auxiliary measurement, $y$, following a Gaussian distribution with uncertainty $\sigma_b$, the problem can be restated:
+
+\begin{align}
+    X &\sim Pois( \mu + b ) & Y & \sim Gaus( b, \sigma_b)
+\end{align}
+
+One can then use the profile likelihood method to eliminate the nuisance parameter $b$ and set limits on $\mu$.
+This is the approach described in arXiv:physics/0403059 and it is the approach used in my analysis
+(where all background uncertainties, including trigger, are folded into $\sigma$.)
+The paper outlines the procedure for two Poisson distributions but the method is generally applicable
+and the ROOT implementation includes the case of one Poisson and one Gaussian.
+
+In order to take into account the trigger efficiency,$\eta$, we can use the model:
+\begin{align}
+    x = \eta b + \mu,
+\end{align}
+( $x$ is the number of events observed, $\eta$ is the trigger efficiency for background events,
+$b$ is the number of background events, $\mu$ is the number of signal events,
+for which we assume 100\% trigger efficiency)
+which implies that there is inefficiency in detecting background events 
+so the true number of background events observed is fewer than would be predicted by MC (+ data driven halo estimate etc.).
+
+The auxiliary measurement of $b$ is Gaussian as before, but this time we also have an auxiliary measurement of $\eta$
+which comes from Q1 sample. 
+Assuming that 100\% of the signal events in the Q1 sample also pass the Q11T trigger then when we do the trigger estimate 
+using the Q1 sample, what we actually measure is:
+
+\begin{align}
+    z = \frac{\textrm{passed Q11T}}{\textrm{all}} = \frac{b \eta + \mu}{b + \mu}
+\end{align}
+
+The complete statement of the problem is now:
+\begin{align}
+    X &\sim Pois( \eta \mu + b ) & Y & \sim Gaus( b, \sigma_b) & Z & \sim Gaus\left( \frac{b \eta + \mu}{b + \mu}, \sigma_\eta \right),
+\end{align}
+where for simplicity I have assumed that the statistical fluctuation of the trigger efficiency measurement can be approximated as Gaussian.
+Now the likelihood function is (just writing out the pdfs of the distributions above):
+\begin{align}
+    l( x, y, z | \mu, b, \eta ) =  \frac{(\mu  + b )^x}{x!}\exp( - (\mu + b )) \cdot \exp{ -\frac{(y - b)^2}{2 \sigma_b^2}}
+    \cdot \exp( (z - \frac{\eta b + \mu}{b + \mu} )^2 / (2\sigma_{\eta}^2) )
+\end{align}
+From this point, it ought to be possible to integrate out the nuisance parameters $b$ and $\eta$ using the Profile Likelihood method as before.
+The problem can no longer be solved analytically because $\mu$, $b$ and $\eta$ are all unpleasantly mixed in the final term.
+(which is a natural consequence of my unpleasantly mixed measurement).
+However, the process of minimizing with respect to the various parameters ought to be possible numerically
+(even if it's beyond what I know how to do with MINUIT).
+
+In summary, there are 3 unknowns: the number of expected background events, the trigger efficiency for background events and the number of signal events, and 3 measurements: the background estimate, the Q1 data sample and the Q11T sample.
+In theory, I think this means a measurement of the signal is viable.
+In practice, I think the implementation is difficult and the constant-value side-band approach is probably the best route.
+
+\paragraph{Implementation of Tommaso's approach\\}
+Using the range $0.06 GeV^2 < m^2 < 0.09 GeV^2$, the measured trigger efficiency is $0.890  \pm 0.005$.
+Comparing the value 0.89 with the efficiencies quoted in the note, the $\chi^2$ probability is: $p( \chi^2 = 116 | dof = 100) = 0.125)$.
+When fixing the trigger efficiency, it seems unreasonable to use 0.005 as the error 
+since this takes no account of the systematic error included by ignoring any variation.
+Instead, I have used the maximum error on the individual efficiency measurements ( 0.025 ) 
+since is this is what determined the goodness of fit in the $\chi^2$ probability.
+
+Below are the limits with the old and new techniques. The pulls now have mean -0.109 and stdev 0.762.
+
+\begin{figure}[h!]
+    \includegraphics[width=0.45\textwidth]{img/u2_before.pdf}
+    \includegraphics[width=0.45\textwidth]{img/u2_after.pdf}
+    \caption{Upper limits on $|U_{\mu h}|^2$ with the original trigger efficiencies (left) and with Tommaso's method (right).}
+\end{figure}
+
+\paragraphfont{\color{DarkOliveGreen4}}  % sets colour of chapters
+\paragraph{Halo: a minor comment: the paragraph in page 62 starting from “The source” is not very clear. I
+    think the message is: we don’t know why the scale factor is less than unity, nor we can state that
+    a single scale factor is enough to describe the K ! 3 deficit. My comment on this is that I keep
+    the first statement as valid, while the second comment seems to me in contrast with the goodness
+of the fit, at least in “upper kinematic region”. I would suggest a rephrasing.\\}
+Instead: \\
+
+The source of this detection inefficiency has not been fully accounted for.
+The parametrization in terms of a single scale factor is therefore not well motivated theoretically
+but the goodness of fit seen in the $\chi^2$ values suggests that it is empirically adequate.
+
+\paragraph{I don’t understand the idea behind Eq. 88. I would have followed the standard PDG-like approach:
+    perform the average of the two determinations taking into account the error; evaluate a 2 value
+    with respect to that average; finally, if needed, scale the errors in order to set the 2 to 1 (exactly
+as it is done for the plots of page 64).\\}
+
+Under this approach, the scale factors become:
+\begin{align}
+    s^{pos}_{upper} &= 3.11 \pm 0.16 \\
+    s^{neg}_{upper} &= 2.45 \pm 0.46 \\
+    s^{pos}_{lower} &= 5.52 \pm 0.31 \\
+    s^{neg}_{lower} &= 4.22 \pm 0.71
+\end{align}
+whereas the numbers I had were:
+\begin{align}
+    s^{pos}_{upper} &= 3.25 \pm 0.50 \\
+    s^{neg}_{upper} &= 2.22 \pm 0.59 \\
+    s^{pos}_{lower} &= 5.58 \pm 0.86 \\
+    s^{neg}_{lower} &= 4.04 \pm 1.20
+\end{align}
+
+\end{document}
